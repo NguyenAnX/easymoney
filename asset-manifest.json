@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/easy-money/static/css/main.2cce8147.chunk.css",
+    "main.js": "/easy-money/static/js/main.b6b89369.chunk.js",
+    "main.js.map": "/easy-money/static/js/main.b6b89369.chunk.js.map",
+    "runtime~main.js": "/easy-money/static/js/runtime~main.35e7e48c.js",
+    "runtime~main.js.map": "/easy-money/static/js/runtime~main.35e7e48c.js.map",
+    "static/css/2.41a373cd.chunk.css": "/easy-money/static/css/2.41a373cd.chunk.css",
+    "static/js/2.92f0a81b.chunk.js": "/easy-money/static/js/2.92f0a81b.chunk.js",
+    "static/js/2.92f0a81b.chunk.js.map": "/easy-money/static/js/2.92f0a81b.chunk.js.map",
+    "index.html": "/easy-money/index.html",
+    "precache-manifest.24ffc87c16b61acfa7e8b93a086c9b62.js": "/easy-money/precache-manifest.24ffc87c16b61acfa7e8b93a086c9b62.js",
+    "service-worker.js": "/easy-money/service-worker.js",
+    "static/css/2.41a373cd.chunk.css.map": "/easy-money/static/css/2.41a373cd.chunk.css.map",
+    "static/css/main.2cce8147.chunk.css.map": "/easy-money/static/css/main.2cce8147.chunk.css.map"
+  }
+}
