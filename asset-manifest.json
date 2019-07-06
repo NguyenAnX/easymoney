@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/easy-money/static/css/main.2cce8147.chunk.css",
-    "main.js": "/easy-money/static/js/main.b6b89369.chunk.js",
-    "main.js.map": "/easy-money/static/js/main.b6b89369.chunk.js.map",
-    "runtime~main.js": "/easy-money/static/js/runtime~main.35e7e48c.js",
-    "runtime~main.js.map": "/easy-money/static/js/runtime~main.35e7e48c.js.map",
-    "static/css/2.41a373cd.chunk.css": "/easy-money/static/css/2.41a373cd.chunk.css",
-    "static/js/2.92f0a81b.chunk.js": "/easy-money/static/js/2.92f0a81b.chunk.js",
-    "static/js/2.92f0a81b.chunk.js.map": "/easy-money/static/js/2.92f0a81b.chunk.js.map",
-    "index.html": "/easy-money/index.html",
-    "precache-manifest.24ffc87c16b61acfa7e8b93a086c9b62.js": "/easy-money/precache-manifest.24ffc87c16b61acfa7e8b93a086c9b62.js",
-    "service-worker.js": "/easy-money/service-worker.js",
-    "static/css/2.41a373cd.chunk.css.map": "/easy-money/static/css/2.41a373cd.chunk.css.map",
-    "static/css/main.2cce8147.chunk.css.map": "/easy-money/static/css/main.2cce8147.chunk.css.map"
+    "main.css": "/easymoney/static/css/main.2cce8147.chunk.css",
+    "main.js": "/easymoney/static/js/main.b1d01b3a.chunk.js",
+    "main.js.map": "/easymoney/static/js/main.b1d01b3a.chunk.js.map",
+    "runtime~main.js": "/easymoney/static/js/runtime~main.fc9afb36.js",
+    "runtime~main.js.map": "/easymoney/static/js/runtime~main.fc9afb36.js.map",
+    "static/css/2.41a373cd.chunk.css": "/easymoney/static/css/2.41a373cd.chunk.css",
+    "static/js/2.dfcbb029.chunk.js": "/easymoney/static/js/2.dfcbb029.chunk.js",
+    "static/js/2.dfcbb029.chunk.js.map": "/easymoney/static/js/2.dfcbb029.chunk.js.map",
+    "index.html": "/easymoney/index.html",
+    "precache-manifest.0ccfb0a297aba00fef877726e9da972c.js": "/easymoney/precache-manifest.0ccfb0a297aba00fef877726e9da972c.js",
+    "service-worker.js": "/easymoney/service-worker.js",
+    "static/css/2.41a373cd.chunk.css.map": "/easymoney/static/css/2.41a373cd.chunk.css.map",
+    "static/css/main.2cce8147.chunk.css.map": "/easymoney/static/css/main.2cce8147.chunk.css.map"
   }
 }
