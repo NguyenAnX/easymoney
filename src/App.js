@@ -1,6 +1,5 @@
 import React from 'react';
-import {GameRun} from './GameRun';
-
+import GameRun from './components/GameRun';
 import './App.css';
 
 function App() {
