@@ -81,7 +81,7 @@ export const RoundPosition = (props) => {
       {
         Object.keys(positions).map((key) => {
           return (
-            positions[key].selected == false && player.position == 0 ?
+            positions[key].selected === false && player.position === 0 ?
               <Col>
                 <Button
                   onClick={() => onPositionClick(playerIndex, key)}

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Row, Col, Tag, Button } from 'antd';
+import { Row, Col, Tag } from 'antd';
 
 export const PlayerRoundResult = (props) => {
   const { player, playerIndex, items, onRemoveItem, onRemovePosition } = props;
 
   return (
     <Row justify="start" type="flex">
-      {player.position != 0 ?
+      {player.position !== 0 ?
         <Col>
           <Tag
             color="#108ee9"

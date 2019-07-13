@@ -1,10 +1,8 @@
 import React from 'react';
-import { Table, Button, Tag, Row, Col, Card } from 'antd';
+import { Table, Button, Row, Col, Card, Popconfirm, message } from 'antd';
 import ls from 'local-storage'
 import { RoundPosition } from './RoundPosition';
-import { Extra } from './Extra';
 import { PlayerRoundResult } from './PlayerRoundResult';
-import './Component.css';
 
 const initPlayers = [
   {
@@ -176,19 +174,27 @@ class GameRun extends React.Component {
       return checkSum + player.earn
     }, 0)
 
-    console.log("checksum:", checkSum)
-    return checkSum == 0
+    return checkSum === 0
   }
 
   onNextRoundClick = () => {
-    this.updateRoundScore()
-    this.resetPositions()
-    ls.set('easyMoney', this.state)
+    const players = this.updateRoundScore()
+    const positions = this.resetPositions()
+    this.setState({
+      players,
+      positions
+    }, () => {
+      ls.set('easyMoney', this.state)
+    })
   }
 
-  onClearRoundResult = () => {
-    this.resetPlayersResult()
-    this.resetPositions()
+  clearRoundResult = () => {
+    const players = this.resetPlayersRoundResult()
+    const positions = this.resetPositions()
+    this.setState({
+      players,
+      positions
+    })
   }
 
   updateRoundScore = () => {
@@ -202,13 +208,10 @@ class GameRun extends React.Component {
         roundResult: [],
       }
     })
-
-    this.setState({
-      players,
-    })
+    return players
   }
 
-  resetPlayersResult = () => {
+  resetPlayersRoundResult = () => {
     const players = this.state.players.map((player) => {
       return {
         ...player,
@@ -218,9 +221,7 @@ class GameRun extends React.Component {
       }
     })
 
-    this.setState({
-      players,
-    })
+    return players
   }
 
   resetPositions = () => {
@@ -235,9 +236,30 @@ class GameRun extends React.Component {
       }
     }, {})
 
-    this.setState({
-      positions,
+    return positions
+  }
+
+  resetPlayerScore = () => {
+    const players = this.state.players.map((player) => {
+      return {
+        ...player,
+        score: 0,
+      }
     })
+
+    return players
+  }
+
+  endGame = () => {
+    this.setState({
+      players: initPlayers,
+      positions: initPositions,
+    },
+      () => {
+        ls.set('easyMoney', this.state)
+      }
+    )
+    message.info('Started a new game');
   }
 
   render() {
@@ -254,10 +276,12 @@ class GameRun extends React.Component {
             </Button>
           </Col>
           <Col>
-            <Button onClick={this.onClearRoundResult}>Clear</Button>
+            <Button onClick={this.clearRoundResult}>Clear</Button>
           </Col>
           <Col>
-            <Button onClick={this.onEndGameClick} type="danger">End Game</Button>
+            <Popconfirm placement="bottom" title="Are you sure to end game?" onConfirm={this.endGame} okText="Yes" cancelText="No">
+              <Button type="danger">End Game</Button>
+            </Popconfirm>
           </Col>
         </Row>
         <br />
