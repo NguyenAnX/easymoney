@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9bfb19022eb69d004d06c75e9db66989",
+    "revision": "e86b1acd65fcb90de0747553316e86c8",
     "url": "/easymoney/index.html"
   },
   {
-    "revision": "9a7242a474a28deb4c76",
+    "revision": "734ebf2195eb62a97f7d",
     "url": "/easymoney/static/css/2.41a373cd.chunk.css"
   },
   {
-    "revision": "13bed0ac9c83de54c864",
+    "revision": "332601f4800815c12ca8",
     "url": "/easymoney/static/css/main.7a0352cc.chunk.css"
   },
   {
-    "revision": "9a7242a474a28deb4c76",
-    "url": "/easymoney/static/js/2.a4557964.chunk.js"
+    "revision": "734ebf2195eb62a97f7d",
+    "url": "/easymoney/static/js/2.68e855b2.chunk.js"
   },
   {
-    "revision": "13bed0ac9c83de54c864",
-    "url": "/easymoney/static/js/main.55567e1f.chunk.js"
+    "revision": "332601f4800815c12ca8",
+    "url": "/easymoney/static/js/main.12f53256.chunk.js"
   },
   {
     "revision": "c3d38ee96e72e61158eb",
