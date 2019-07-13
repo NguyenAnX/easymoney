@@ -1,8 +1,10 @@
 import React from 'react';
 import { Table, Button, Tag, Row, Col, Card } from 'antd';
+import ls from 'local-storage'
 import { RoundPosition } from './RoundPosition';
 import { Extra } from './Extra';
 import { PlayerRoundResult } from './PlayerRoundResult';
+import './Component.css';
 
 const initPlayers = [
   {
@@ -77,9 +79,14 @@ const initPositions = {
 class GameRun extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      players: initPlayers,
-      positions: initPositions,
+    const persistedState = ls.get('easyMoney')
+    if (persistedState) {
+      this.state = persistedState
+    } else {
+      this.state = {
+        players: initPlayers,
+        positions: initPositions,
+      }
     }
     this.initColumns()
   }
@@ -93,17 +100,26 @@ class GameRun extends React.Component {
       {
         title: 'Position',
         dataIndex: '',
-        render: (text, record, index) => <RoundPosition positions={this.state.positions} player={record} playerIndex={index} onPositionClick={this.onPositionClick} />,
-      },
-      {
-        title: 'Extra',
-        dataIndex: 'extra',
-        render: (text, record, index) => <Extra playerIndex={index} onClickItem={this.onClickExtraItem} />
+        render: (text, record, index) =>
+          <RoundPosition
+            positions={this.state.positions}
+            player={record}
+            playerIndex={index}
+            onPositionClick={this.selectPosition}
+            onExtraItemClick={this.addExtraItem}
+          />,
       },
       {
         title: 'Round Result',
         dataIndex: 'roundResult',
-        render: (text, record, index) => <PlayerRoundResult player={record} playerIndex={index} items={record.roundResult} onRemoveItem={this.removePlayerItem} onRemovePosition={this.onRemovePosition} />
+        render: (text, record, index) =>
+          <PlayerRoundResult
+            player={record}
+            playerIndex={index}
+            items={record.roundResult}
+            onRemoveItem={this.removePlayerItem}
+            onRemovePosition={this.removePlayerPosition}
+          />
       },
       {
         title: 'Earn',
@@ -116,7 +132,7 @@ class GameRun extends React.Component {
     ];
   }
 
-  onClickExtraItem = (playerIndex, item) => {
+  addExtraItem = (playerIndex, item) => {
     let player = this.state.players[playerIndex]
     player.earn += item.score
     player.roundResult.push(item)
@@ -131,7 +147,7 @@ class GameRun extends React.Component {
     this.forceUpdate()
   }
 
-  onPositionClick = (playerIndex, positionIndex) => {
+  selectPosition = (playerIndex, positionIndex) => {
     let addedPosition = this.state.positions[positionIndex]
     addedPosition.selected = true
 
@@ -142,7 +158,7 @@ class GameRun extends React.Component {
     this.forceUpdate()
   }
 
-  onRemovePosition = (playerIndex) => {
+  removePlayerPosition = (playerIndex) => {
     let player = this.state.players[playerIndex]
     let positionIndex = player.position
     let removedPosition = this.state.positions[positionIndex]
@@ -167,6 +183,7 @@ class GameRun extends React.Component {
   onNextRoundClick = () => {
     this.updateRoundScore()
     this.resetPositions()
+    ls.set('easyMoney', this.state)
   }
 
   onClearRoundResult = () => {
@@ -240,7 +257,7 @@ class GameRun extends React.Component {
             <Button onClick={this.onClearRoundResult}>Clear</Button>
           </Col>
           <Col>
-            <Button type="danger">End Game</Button>
+            <Button onClick={this.onEndGameClick} type="danger">End Game</Button>
           </Col>
         </Row>
         <br />
