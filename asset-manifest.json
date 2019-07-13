@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/easymoney/static/css/main.7a0352cc.chunk.css",
-    "main.js": "/easymoney/static/js/main.2afe7093.chunk.js",
-    "main.js.map": "/easymoney/static/js/main.2afe7093.chunk.js.map",
+    "main.js": "/easymoney/static/js/main.8fc21599.chunk.js",
+    "main.js.map": "/easymoney/static/js/main.8fc21599.chunk.js.map",
     "runtime~main.js": "/easymoney/static/js/runtime~main.fc9afb36.js",
     "runtime~main.js.map": "/easymoney/static/js/runtime~main.fc9afb36.js.map",
     "static/css/2.41a373cd.chunk.css": "/easymoney/static/css/2.41a373cd.chunk.css",
     "static/js/2.9fb047f9.chunk.js": "/easymoney/static/js/2.9fb047f9.chunk.js",
     "static/js/2.9fb047f9.chunk.js.map": "/easymoney/static/js/2.9fb047f9.chunk.js.map",
     "index.html": "/easymoney/index.html",
-    "precache-manifest.0c5f26b940292eae64904630054d9ae6.js": "/easymoney/precache-manifest.0c5f26b940292eae64904630054d9ae6.js",
+    "precache-manifest.3d7251fb29f8e5f838c4ca9cd730bc5f.js": "/easymoney/precache-manifest.3d7251fb29f8e5f838c4ca9cd730bc5f.js",
     "service-worker.js": "/easymoney/service-worker.js",
     "static/css/2.41a373cd.chunk.css.map": "/easymoney/static/css/2.41a373cd.chunk.css.map",
     "static/css/main.7a0352cc.chunk.css.map": "/easymoney/static/css/main.7a0352cc.chunk.css.map"

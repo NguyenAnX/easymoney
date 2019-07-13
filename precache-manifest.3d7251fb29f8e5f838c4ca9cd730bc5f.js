@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "53d03b5b9bd67fc2b2cdfb08d8adb606",
+    "revision": "b04f6dd84a68477ca032a5f38782b0c4",
     "url": "/easymoney/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easymoney/static/css/2.41a373cd.chunk.css"
   },
   {
-    "revision": "102099e3a433c0a93ff8",
+    "revision": "29d11621c614feeb77b9",
     "url": "/easymoney/static/css/main.7a0352cc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easymoney/static/js/2.9fb047f9.chunk.js"
   },
   {
-    "revision": "102099e3a433c0a93ff8",
-    "url": "/easymoney/static/js/main.2afe7093.chunk.js"
+    "revision": "29d11621c614feeb77b9",
+    "url": "/easymoney/static/js/main.8fc21599.chunk.js"
   },
   {
     "revision": "c3d38ee96e72e61158eb",
