@@ -239,21 +239,21 @@ class GameRun extends React.Component {
     return positions
   }
 
-  resetPlayerScore = () => {
+  endGame = () => {
     const players = this.state.players.map((player) => {
       return {
         ...player,
+        earn: 0,
+        position: 0,
+        roundResult: [],
         score: 0,
       }
     })
+    const positions = this.resetPositions()
 
-    return players
-  }
-
-  endGame = () => {
     this.setState({
-      players: initPlayers,
-      positions: initPositions,
+      players,
+      positions,
     },
       () => {
         ls.set('easyMoney', this.state)
