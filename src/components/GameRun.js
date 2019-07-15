@@ -1,10 +1,12 @@
 import React from 'react';
-import { Table, Button, Row, Col, Card, Popconfirm, message } from 'antd';
+import {Button, Card, Col, message, Popconfirm, Row, Table} from 'antd';
 import ls from 'local-storage'
-import { RoundPosition } from './RoundPosition';
-import { PlayerRoundResult } from './PlayerRoundResult';
+import {RoundPosition} from './RoundPosition';
+import {PlayerRoundResult} from './PlayerRoundResult';
 
-const initPlayers = [
+const defaultStateMachine = []
+
+const defaultPlayers = [
   {
     key: '1',
     name: 'An',
@@ -82,8 +84,9 @@ class GameRun extends React.Component {
       this.state = persistedState
     } else {
       this.state = {
-        players: initPlayers,
+        players: defaultPlayers,
         positions: initPositions,
+        stateMachine: defaultStateMachine,
       }
     }
     this.initColumns()
@@ -178,11 +181,14 @@ class GameRun extends React.Component {
   }
 
   onNextRoundClick = () => {
-    const players = this.updateRoundScore()
+    const players = this.updatePlayers()
     const positions = this.resetPositions()
+    const updatedStateMachine = this.updateStateMachine()
+
     this.setState({
       players,
-      positions
+      positions,
+      updatedStateMachine
     }, () => {
       ls.set('easyMoney', this.state)
     })
@@ -197,8 +203,15 @@ class GameRun extends React.Component {
     })
   }
 
-  updateRoundScore = () => {
-    const players = this.state.players.map((player) => {
+  updateStateMachine = () => {
+    defaultStateMachine.push({
+      timestamp: Date.now(),
+      players: this.state.players,
+    })
+  }
+
+  updatePlayers = () => {
+    return this.state.players.map((player) => {
       const newScore = player.score + player.earn
       return {
         ...player,
@@ -208,11 +221,10 @@ class GameRun extends React.Component {
         roundResult: [],
       }
     })
-    return players
   }
 
   resetPlayersRoundResult = () => {
-    const players = this.state.players.map((player) => {
+    return this.state.players.map((player) => {
       return {
         ...player,
         earn: 0,
@@ -220,12 +232,10 @@ class GameRun extends React.Component {
         roundResult: [],
       }
     })
-
-    return players
   }
 
   resetPositions = () => {
-    const positions = Object.keys(this.state.positions).reduce((memo, positionIndex) => {
+    return Object.keys(this.state.positions).reduce((memo, positionIndex) => {
       const position = this.state.positions[positionIndex]
       return {
         ...memo,
@@ -235,8 +245,6 @@ class GameRun extends React.Component {
         }
       }
     }, {})
-
-    return positions
   }
 
   endGame = () => {
@@ -252,9 +260,9 @@ class GameRun extends React.Component {
     const positions = this.resetPositions()
 
     this.setState({
-      players,
-      positions,
-    },
+        players,
+        positions,
+      },
       () => {
         ls.set('easyMoney', this.state)
       }
@@ -279,12 +287,13 @@ class GameRun extends React.Component {
             <Button onClick={this.clearRoundResult}>Clear</Button>
           </Col>
           <Col>
-            <Popconfirm placement="bottom" title="Are you sure to end game?" onConfirm={this.endGame} okText="Yes" cancelText="No">
+            <Popconfirm placement="bottom" title="Are you sure to end game?" onConfirm={this.endGame} okText="Yes"
+                        cancelText="No">
               <Button type="danger">End Game</Button>
             </Popconfirm>
           </Col>
         </Row>
-        <br />
+        <br/>
         <Row>
           <Table
             dataSource={this.state.players}
